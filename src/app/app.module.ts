@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/partials/home/home.component';
 import { ListaPersonaComponent } from './components/partials/lista-persona/lista-persona.component';
 import { FormularioPersonaComponent } from './components/partials/formulario-persona/formulario-persona.component';
+import { RegistroPersonaComponent } from './components/partials/registro-persona/registro-persona.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormularioPersonaComponent } from './components/partials/formulario-per
     HeaderComponent,
     HomeComponent,
     ListaPersonaComponent,
-    FormularioPersonaComponent
+    FormularioPersonaComponent,
+    RegistroPersonaComponent
   ],
   imports: [
     BrowserModule,
