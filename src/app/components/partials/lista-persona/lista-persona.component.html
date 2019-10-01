@@ -16,29 +16,11 @@
                        </tr>
                    </thead>
                    <tbody>
-                       <tr>
-                           <th scope="row">1</th>
-                           <td>Mark</td>
-                           <td>Otto</td>
-                           <td>000000000</td>
-                           <td><a href="#" class="btn btn-primary btn-lg">Editar</a>
-                               <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Eliminar</button>
-                           </td>
-                       </tr>
-                       <tr>
-                           <th scope="row">2</th>
-                           <td>Jacob</td>
-                           <td>Thornton</td>
-                           <td>000000000</td>
-                           <td><a href="#" class="btn btn-primary btn-lg">Editar</a>
-                               <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Eliminar</button>
-                           </td>
-                       </tr>
-                       <tr>
-                           <th scope="row">3</th>
-                           <td>Larry</td>
-                           <td>the Bird</td>
-                           <td>000000000</td>
+                       <tr  *ngFor="let persona of personas" >
+                           <th scope="row">{{persona.id}}</th>
+                           <td>{{persona.nombre}}</td>
+                           <td>{{persona.apellido}}</td>
+                           <td>{{persona.telefono}}</td>
                            <td><a href="#" class="btn btn-primary btn-lg">Editar</a>
                                <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Eliminar</button>
                            </td>
