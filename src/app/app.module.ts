@@ -8,6 +8,8 @@ import { HomeComponent } from './components/partials/home/home.component';
 import { ListaPersonaComponent } from './components/partials/lista-persona/lista-persona.component';
 import { FormularioPersonaComponent } from './components/partials/formulario-persona/formulario-persona.component';
 import { RegistroPersonaComponent } from './components/partials/registro-persona/registro-persona.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,12 @@ import { RegistroPersonaComponent } from './components/partials/registro-persona
     RegistroPersonaComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,60 +1,71 @@
 <div class="card">
-       <div class="card-header">
-           <a  [routerLink]="['/registro-persona']" class="btn btn-primary">Registrar persona</a>
-       </div>
-       <div class="card-body">
-           <blockquote class="blockquote mb-0">
-               <p>Personas</p>
-               <table class="table">
-                   <thead class="thead-dark">
-                       <tr>
-                           <th scope="col">#</th>
-                           <th scope="col">Nombre</th>
-                           <th scope="col">Apellidos</th>
-                           <th scope="col">Teléfono</th>
-                           <th scope="col">Acciones</th>
-                       </tr>
-                   </thead>
-                   <tbody>
-                       <tr  *ngFor="let persona of personas" >
-                           <th scope="row">{{persona.id}}</th>
-                           <td>{{persona.nombre}}</td>
-                           <td>{{persona.apellido}}</td>
-                           <td>{{persona.telefono}}</td>
-                           <td><a href="#" class="btn btn-primary btn-lg">Editar</a>
-                               <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Eliminar</button>
-                           </td>
-                       </tr>
-                   </tbody>
-               </table>
-
-           </blockquote>
-       </div>
-   </div>
+  <div class="card-header">
+    <a [routerLink]="['/registro-persona']" class="btn btn-primary">Registrar persona</a>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <div *ngIf="personas.length == 0">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Lo sentimos!</strong> No existe información el sistemas.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
 
 
+      <div *ngIf="personas.length > 0">
+        <p>Personas</p>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let persona of personas">
+              <th scope="row">{{persona.id}}</th>
+              <td>{{persona.nombre | uppercase}}</td>
+              <td>{{persona.apellido | uppercase}}</td>
+              <td>{{persona.telefono}}</td>
+              <td><a href="#" class="btn btn-primary btn-lg">Editar</a>
+                <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </blockquote>
+  </div>
+</div>
 
-   <!-- The Modal -->
-   <div class="modal fade" id="myModal">
-       <div class="modal-dialog">
-           <div class="modal-content">
 
-               <!-- Modal Header -->
-               <div class="modal-header">
-                   <h4 class="modal-title">Eliminar</h4>
-                   <button type="button" class="close" data-dismiss="modal">×</button>
-               </div>
 
-               <!-- Modal body -->
-               <div class="modal-body">
-                   ¿Está seguro que desea eliminar la información?
-               </div>
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-               <!-- Modal footer -->
-               <div class="modal-footer">
-                   <button type="button" class="btn btn-danger" data-dismiss="modal">Aceptar</button>
-               </div>
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar</h4>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
 
-           </div>
-       </div>
-   </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        ¿Está seguro que desea eliminar la información?
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Aceptar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
