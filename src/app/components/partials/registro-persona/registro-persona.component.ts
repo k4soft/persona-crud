@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegistroPersonaComponent implements OnInit {
 
-  private persona: Persona = new Persona();
+   public persona: Persona = new Persona();
 
 
   constructor(private personaService: PersonaService, private router: Router) { }
