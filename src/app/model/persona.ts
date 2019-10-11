@@ -1,6 +1,9 @@
+import { TipoDocumento } from './tipodocumento';
 export class Persona {
-     id:number;
-     nombre:string;
-     apellido:string;
-     telefono:string;
+     id: number;
+     numeroDocumento: string;
+     nombre: string;
+     apellido: string;
+     telefono: string;
+     tipoDocumento = new TipoDocumento();
 }

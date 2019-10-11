@@ -16,6 +16,27 @@
             <form (ngSubmit)="insert()" #personaForm="ngForm">
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <label for="nombres">Tipo documento</label>
+                        <select class="form-control" id="tipoDocIdentidad" name="tipoDocIdentidad" [(ngModel)]="persona.tipoDocumento" required>
+                                <option>--Seleccione--</option>
+                                  <option *ngFor="let documento of tipoDocumentos" [ngValue]="documento">{{documento.nombre}}</option>
+                              </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="apellidos">Numero documento</label>
+                        <input type="text" class="form-control" id="apellidos" placeholder="numero" name="apellidos">
+                        <div class="alert alert-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
+                            <div *ngIf="apellidos?.errors.required">Apellido es requerido</div>
+                            <div *ngIf="apellidos?.errors.minlength">Apellido debe terner al menos 3 caracteres</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
                         <label for="nombres">Nombres</label>
                         <input type="text" class="form-control" id="nombres" placeholder="nombres" name="nombre" [(ngModel)]="persona.nombre" minlength="3" #nombres="ngModel" required>
                         <div class="alert alert-danger" *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)">

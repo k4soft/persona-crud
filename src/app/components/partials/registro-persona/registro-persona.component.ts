@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Persona} from '../../../model/persona';
 import {PersonaService } from '../../../service/persona.service';
 import { Router } from '@angular/router';
+import { TipoDocumento } from '../../../model/tipodocumento';
+import { TipoDocumentoService } from '../../../service/tipo-documento.service';
 
 @Component({
   selector: 'app-registro-persona',
@@ -11,11 +13,17 @@ import { Router } from '@angular/router';
 export class RegistroPersonaComponent implements OnInit {
 
    public persona: Persona = new Persona();
+   public tipoDocumentos: TipoDocumento[];
 
 
-  constructor(private personaService: PersonaService, private router: Router) { }
+  constructor(private personaService: PersonaService, private tipoDocumentoService: TipoDocumentoService, private router: Router) { }
 
   ngOnInit() {
+    this.tipoDocumentoService.listarDocumentos().subscribe(
+      (tipoDocumentos) => {
+        this.tipoDocumentos = tipoDocumentos;
+      }
+    );
   }
 
 
