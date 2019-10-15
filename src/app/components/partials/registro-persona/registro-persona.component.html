@@ -23,11 +23,11 @@
                               </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="apellidos">Numero documento</label>
-                        <input type="text" class="form-control" id="apellidos" placeholder="numero" name="apellidos">
-                        <div class="alert alert-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
-                            <div *ngIf="apellidos?.errors.required">Apellido es requerido</div>
-                            <div *ngIf="apellidos?.errors.minlength">Apellido debe terner al menos 3 caracteres</div>
+                        <label for="numeroDocumento">Numero documento</label>
+                        <input type="text" class="form-control" id="numeroDocumento" placeholder="Número de documento" name="numeroDocumento" [(ngModel)]="persona.numeroDocumento" minlength="3" #numeroDocumento="ngModel" required>
+                        <div class="alert alert-danger" *ngIf="numeroDocumento.invalid && (numeroDocumento.dirty || numeroDocumento.touched)">
+                            <div *ngIf="numeroDocumento?.errors.required">Apellido es requerido</div>
+                            <div *ngIf="numeroDocumento?.errors.minlength">Apellido debe terner al menos 3 caracteres</div>
                         </div>
                     </div>
                 </div>

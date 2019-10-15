@@ -12,6 +12,7 @@ import {Persona} from '../../../model/persona'
 export class ListaPersonaComponent implements OnInit {
 
   personas: Persona[] = [];
+  personaSeleccionada:Persona;
 
   constructor(private personaService: PersonaService) { }
 
@@ -23,6 +24,18 @@ export class ListaPersonaComponent implements OnInit {
         }
       );
 
+  }
+
+  showModal(persona:Persona){
+    this.personaSeleccionada = persona;
+  }
+
+  eliminar(id:number){
+    this.personaService.eliminar(id).subscribe(
+      _=>{
+        this.personas = this.personas.filter(persona => persona != this.personaSeleccionada);
+      }
+    )
   }
 
 }

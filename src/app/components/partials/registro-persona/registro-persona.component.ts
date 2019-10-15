@@ -35,4 +35,10 @@ export class RegistroPersonaComponent implements OnInit {
       )
   }
 
+
+
+
+
+
+
 }

@@ -33,7 +33,7 @@
                             <td>{{persona.apellido | uppercase}}</td>
                             <td>{{persona.telefono}}</td>
                             <td><a href="#" class="btn btn-primary btn-lg">Editar</a>
-                                <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Eliminar</button>
+                                <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal" (click)="showModal(persona)">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>
@@ -58,12 +58,12 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                ¿Está seguro que desea eliminar la información?
+                ¿Está seguro que desea eliminar la información de {{personaSeleccionada.nombre | uppercase}} {{personaSeleccionada.apellido | uppercase}}?
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Aceptar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="eliminar(personaSeleccionada.id)" >Aceptar</button>
             </div>
 
         </div>
